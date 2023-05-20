@@ -85,8 +85,9 @@ public class User {
 
     public int getNumberOfMembershipYearsIn2000() {
         int count = 0;
+
         for (int year : membershipYears) {
-            if (year >= 2000) {
+        if (year >= 2000 && year < 3000) {
                 count++;
             }
         }
