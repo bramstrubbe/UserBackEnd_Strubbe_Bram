@@ -3,10 +3,6 @@ package demo;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.crypto.dsig.keyinfo.RetrievalMethod;
-
-import io.micrometer.core.instrument.config.validate.Validated.Invalid;
-
 public class User {
 
     private String name;
@@ -87,7 +83,7 @@ public class User {
         int count = 0;
 
         for (int year : membershipYears) {
-        if (year >= 2000 && year < 3000) {
+            if (year >= 2000 && year < 3000) {
                 count++;
             }
         }

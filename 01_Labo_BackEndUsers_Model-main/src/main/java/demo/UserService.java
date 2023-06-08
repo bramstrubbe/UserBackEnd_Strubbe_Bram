@@ -76,4 +76,18 @@ public class UserService {
         return removedUser;
     }
 
+    public List<User> getUsersWithEmailAndAge(String email, int age) {
+        return userRepository.stream().filter(user -> user.getEmail().equals(email) && user.getAge() == age).toList();
+    }
+
+    public List<User> getUsersWithAgeBetweenMinMax(int minage, int maxage) {
+        for (User user : userRepository) {
+            if (user.getAge() >= minage && user.getAge() <= maxage) {
+                userRepository.add(user);
+            }
+        }
+
+        return userRepository;
+    }
+
 }
