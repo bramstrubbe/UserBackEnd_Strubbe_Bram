@@ -10,6 +10,35 @@ public class User {
     private String email;
     private String password;
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        User otherUser = (User) obj;
+        return name.equals(otherUser.name) &&
+               age == otherUser.age &&
+               email.equals(otherUser.email);
+    }
+
+    public static void main(String[] args) {
+        User bert = new User("Bert", 20, "bert@ucll.be", "abc");
+        bert.addMembershipYear(2000);
+        User bertII = new User("Bert", 20, "bert@ucll.be", "abc");
+        bertII.addMembershipYear(2001);
+        User bertIII = new User("Bert", 20, "bert@ucll.be", "xyz");
+        bertIII.addMembershipYear(2003);
+        User chris = new User("Chris", 20, "bert@ucll.be", "abc");
+        chris.addMembershipYear(2000);
+
+        System.out.println(bert.equals(bertII));    // returns true
+        System.out.println(bert.equals(bertIII));   // returns true
+        System.out.println(bert.equals(chris));     // returns false
+    }
+
     private List<Integer> membershipYears = new ArrayList<Integer>();
 
     public User(String name, int age, String email, String password) {
