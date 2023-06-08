@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 
 @CrossOrigin(origins = "http://127.0.0.1:5000")
@@ -77,6 +79,10 @@ public class CorsConfig implements WebMvcConfigurer {
     }
 }
     
+@PostMapping
+public boolean addUser(@RequestBody User user) {
+ return userService.addUser (user);
+}
 
 }
 
